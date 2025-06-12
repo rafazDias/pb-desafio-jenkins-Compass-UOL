@@ -24,7 +24,7 @@ metadata:
   name: desafio-jenkins-service
 spec:
   selector:
-    app: desafio-jenkins
+    app: desafio-jenkins-backend
   ports:
   - port: 80
     targetPort: 8000
