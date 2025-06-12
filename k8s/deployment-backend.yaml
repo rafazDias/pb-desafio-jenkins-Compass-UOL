@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: desafio-jenkins-backend
-        image: rafaelldiass/pipedesafiojenkins:desafio-jenkins-backend{{tag}}
+        image: rafaelldiass/pipedesafiojenkins:desafio-jenkins-backend-{{tag}}
         ports:
         - containerPort: 8000
 ---
