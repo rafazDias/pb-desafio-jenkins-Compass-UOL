@@ -60,12 +60,12 @@ pipeline{
                         
                         //backend
                         sh 'sed -i "s/{{tag}}/$tag_version/g" ./k8s/deployment-backend.yaml'
-                        sh "kubectl apply -f k8s/deployment.yaml"
+                        sh "kubectl apply -f k8s/deployment-backend.yaml"
                         
                         //frontend
 
                         sh 'sed -i "s/{{tag}}/$tag_version/g" ./k8s/deployment-frontend.yaml'
-                        sh "kubectl apply -f k8s/deployment.yaml"
+                        sh "kubectl apply -f k8s/deployment-frontend.yaml"
                     }
                     
                 }
