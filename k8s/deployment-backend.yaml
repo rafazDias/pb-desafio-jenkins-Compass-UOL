@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: desafio-jenkins
+  name: desafio-jenkins-backend
 spec:
   replicas: 2
   selector:
