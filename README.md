@@ -39,6 +39,7 @@ kubectl config view --minify --flatten --raw > kubeconfig-jenkins.yaml
 Insira esse arquivo nas credentials do Jenkins, nomeando como `kubeconfig`.
 
   ---
+![jenkins credentials](https://github.com/user-attachments/assets/a4685d62-9bd7-4c23-909b-12516c4aa52c)
 
 ## Fase 2: Containerização com Docker  
 
@@ -351,8 +352,10 @@ spec:
 1. Crie uma nova tarefa no Jenkins,
 
 selecione **Pipeline**.
+![Captura de tela de 2025-06-12 20-06-33](https://github.com/user-attachments/assets/cc5a5949-7129-40be-844e-9b08e2d91b2a)
 
 2. Em **Triggers**, selecione **GitHub hook trigger for GITScm polling**.
+![Captura de tela de 2025-06-12 20-06-43](https://github.com/user-attachments/assets/5ae77faa-4cb7-45f1-9bca-8ed16d0931f6)
 
 3. Em **Pipeline**:
 * Em **Definition**, selecione **Pipeline script from SCM**.
@@ -360,6 +363,7 @@ selecione **Pipeline**.
 * Em **SCM**, selecione **Git**.
 
 * Insira seu repositório GitHub.
+![Captura de tela de 2025-06-12 20-07-20](https://github.com/user-attachments/assets/d4893c38-0508-4970-830d-c4ace2b90240)
 
 * Na **Branch**, coloque `*/dev` (já que estamos trabalhando na dev).
 * 
@@ -457,6 +461,7 @@ ngrok  http  8080
 4. No seu repositório do GitHub, vá em **Settings > Webhooks**.
 
 5. Clique em **Add webhook**.
+![githubwebhook](https://github.com/user-attachments/assets/f60c59b8-5a2a-49ce-940c-261f226f00a3)
 
 * Em **Payload URL**, insira a URL do ngrok + `/github-webhook/`. Exemplo:
 ```
@@ -466,15 +471,19 @@ https://abc123.ngrok.io/github-webhook/
 * Em **Content type**, selecione `application/json`.
 
 * Em **Which events would you like to trigger this webhook?**, selecione somente **Push events**.
+![Captura de tela de 2025-06-12 20-14-05](https://github.com/user-attachments/assets/dfb41f91-e0fa-41b4-b143-826aeaf975b4)
 
 ---
 ## Testes da aplicação e exposição dos serviços no ambiente local
 
-  
+Construa sua pipeline manualmente ou realize um commit para que ela seja criada 
+
 
 ### Expondo os serviços localmente com kubectl port-forward
 
   Para testar a aplicação localmente, execute os comandos abaixo para expor os serviços do Kubernetes nas portas locais:
+![Captura de tela de 2025-06-12 21-43-19](https://github.com/user-attachments/assets/19df9d88-a59b-424d-bd66-808bc3baf7be)
+![Captura de tela de 2025-06-12 21-43-33](https://github.com/user-attachments/assets/ccb527e5-d957-4a06-901c-a1c6df7a8b0c)
 
 ```bash
 
@@ -498,5 +507,9 @@ kubectl  port-forward  svc/desafio-jenkins-frontend-service  8000:80
 * Frontend: [http://localhost:8000](http://localhost:8000)
 
 No frontend, os botões da interface irão consumir as APIs do backend exposto na porta 8001, permitindo testar todas as funcionalidades implementadas.
+![Captura de tela de 2025-06-12 21-38-18](https://github.com/user-attachments/assets/dd986908-432e-482d-9ec2-fbac748fca5a)
+![Captura de tela de 2025-06-12 21-39-03](https://github.com/user-attachments/assets/5182fb0f-5c28-4ef7-be95-9ea684aa355c)
+![Captura de tela de 2025-06-12 21-39-15](https://github.com/user-attachments/assets/029b049b-e58c-41c9-bd79-e605e2c0490a)
+
 
 ---
