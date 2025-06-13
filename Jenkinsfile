@@ -50,6 +50,14 @@ pipeline{
                 }
             }
         }
+         stage('Trivy Scan') {
+            steps {
+                script {
+                    sh 'trivy image --severity CRITICAL,HIGH rafaelldiass/pipedesafiojenkins:backend-${BUILD_ID}'
+                    sh 'trivy image --severity CRITICAL,HIGH rafaelldiass/pipedesafiojenkins:frontend-${BUILD_ID}'
+                }
+            }
+        }
 
                     stage('Deploy Kubernetes') {
                         environment {
