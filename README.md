@@ -496,7 +496,8 @@ Construa sua pipeline manualmente ou realize um commit para que ela seja criada
 
   Para testar a aplicação localmente, execute os comandos abaixo para expor os serviços do Kubernetes nas portas locais:
 ![Captura de tela de 2025-06-12 21-43-19](https://github.com/user-attachments/assets/19df9d88-a59b-424d-bd66-808bc3baf7be)
-![Captura de tela de 2025-06-12 21-43-33](https://github.com/user-attachments/assets/ccb527e5-d957-4a06-901c-a1c6df7a8b0c)
+![Captura de tela de 2025-06-13 00-13-22](https://github.com/user-attachments/assets/6ebaa21c-e807-4a2c-9789-d6786b6b4e2f)
+
 
 ```bash
 
