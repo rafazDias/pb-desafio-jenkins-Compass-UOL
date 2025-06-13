@@ -367,7 +367,12 @@ selecione **Pipeline**.
 
 * Na **Branch**, coloque `*/dev` (já que estamos trabalhando na dev).
 * 
-4. Crie um arquivo `Jenkinsfile` na raiz do seu repositório com o seguinte conteúdo:
+4. Instale o trivy na sua maquina local para escanear vulnerabilidades na imagem
+utilize o comando abaixo para instalar o trivy :
+```
+curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sudo sh -s -- -b /usr/local/bin
+ ```
+5. Crie um arquivo `Jenkinsfile` na raiz do seu repositório com o seguinte conteúdo:
 
 ```groovy
 pipeline{
@@ -419,6 +424,14 @@ pipeline{
                         frontend.push("frontend-${env.BUILD_ID}")
                     }
                 
+                }
+            }
+        }
+         stage('Trivy Scan') {
+            steps {
+                script {
+                    sh 'trivy image --severity CRITICAL,HIGH rafaelldiass/pipedesafiojenkins:backend-${BUILD_ID}'
+                    sh 'trivy image --severity CRITICAL,HIGH rafaelldiass/pipedesafiojenkins:frontend-${BUILD_ID}'
                 }
             }
         }
