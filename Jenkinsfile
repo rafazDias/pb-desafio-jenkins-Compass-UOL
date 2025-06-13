@@ -53,8 +53,8 @@ pipeline{
          stage('Trivy Scan') {
             steps {
                 script {
-                    sh 'trivy image --exit-code 1 --severity CRITICAL,HIGH rafaelldiass/pipedesafiojenkins:backend-${env.BUILD_ID}'
-                    sh 'trivy image --exit-code 1 --severity CRITICAL,HIGH rafaelldiass/pipedesafiojenkins:frontend-${env.BUILD_ID}'
+                    sh 'trivy image --exit-code 1 --severity CRITICAL,HIGH rafaelldiass/pipedesafiojenkins:backend-${BUILD_ID}'
+                    sh 'trivy image --exit-code 1 --severity CRITICAL,HIGH rafaelldiass/pipedesafiojenkins:frontend-${BUILD_ID}'
                 }
             }
         }
