@@ -9,7 +9,6 @@
 1.1 - Crie uma branch chamada `dev` onde iremos trabalhar no nosso projeto.
   
 1.2 - Crie 3 pastas no seu repositório para organizar o projeto:
-
 -  `backend`
 
 -  `frontend`
